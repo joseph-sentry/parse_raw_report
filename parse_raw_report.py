@@ -36,7 +36,7 @@ def process(raw_report_location, destination_dir, no_limit):
             filename = file["filename"]
 
             if filename.startswith("/"):
-                filename = filename[2:]
+                filename = filename[1:]  # strip leading separator to make path relative
 
             data = str(zlib.decompress(base64.b64decode(file["data"])), "utf8")
             counter += len(data)
